@@ -20,12 +20,12 @@ public class TC_006_PaymentTest extends BaseClass {
 		logger.info("***** Starting TC_005_PaymentTest *****");
 		
 		//Home page
-		HomePage hp=new HomePage(driver);
+		HomePage hp=new HomePage(getDriver());
 		hp.HomepageVisible();
 		logger.info("clicked on myaccount link on the home page..");
 				
 		//Login page
-		LoginPage lp=new LoginPage(driver);
+		LoginPage lp=new LoginPage(getDriver());
 		hp.linkOfSignupLogin(); //Login link under MyAccount
 		logger.info("clicked on login link under myaccount..");
 		logger.info("Entering valid email and password..");
@@ -35,7 +35,7 @@ public class TC_006_PaymentTest extends BaseClass {
 		logger.info("clicked on login button..");
 		
 		//My Account Page
-		MyAccountPage macc=new MyAccountPage(driver);
+		MyAccountPage macc=new MyAccountPage(getDriver());
 				
 		boolean targetPage=macc.isMyAccountPageExists();
 		
@@ -44,7 +44,7 @@ public class TC_006_PaymentTest extends BaseClass {
 		logger.info("Successfully Logged in");
 
 		//CartPage
-		CartPage cp= new CartPage(driver);
+		CartPage cp= new CartPage(getDriver());
 		
 		logger.info("Product is adding to the cart");
 		cp.clickAddToCart();
@@ -56,7 +56,7 @@ public class TC_006_PaymentTest extends BaseClass {
 		cp.verifyProductIsAddedToCart();
 		
 		//checkout page
-		CheckoutPage cop= new CheckoutPage(driver);
+		CheckoutPage cop= new CheckoutPage(getDriver());
 		
 		logger.info("Product id proceeding for checkout");	
 		cop.clickOnproceedToCheckout();
@@ -65,7 +65,7 @@ public class TC_006_PaymentTest extends BaseClass {
 		cop.clickOnPlaceOrder();
 		
 		//PaymentPage
-		PaymentPage pp= new PaymentPage(driver);
+		PaymentPage pp= new PaymentPage(getDriver());
 		
 		logger.info("Verifying payment page is displayed");
 		pp.paymentPageAppeared();
@@ -77,7 +77,7 @@ public class TC_006_PaymentTest extends BaseClass {
 		pp.ClickOnPayAndConfirmOrder();
 		
 		//OrderConfirmPage
-		OrderConfirmPage ocp= new OrderConfirmPage(driver);
+		OrderConfirmPage ocp= new OrderConfirmPage(getDriver());
 		
 		logger.info("Verifying order has been placed successfully");
 		ocp.checkOrderIsConfirmed();

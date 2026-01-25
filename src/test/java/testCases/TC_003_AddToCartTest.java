@@ -19,12 +19,12 @@ public class TC_003_AddToCartTest extends BaseClass {
 		 
 		
 		//Home page
-		HomePage hp=new HomePage(driver);
+		HomePage hp=new HomePage(getDriver());
 		hp.HomepageVisible();
 		logger.info("clicked on myaccount link on the home page..");
 				
 		//Login page
-		LoginPage lp=new LoginPage(driver);
+		LoginPage lp=new LoginPage(getDriver());
 		hp.linkOfSignupLogin(); //Login link under MyAccount
 		logger.info("clicked on login link under myaccount..");
 		logger.info("Entering valid email and password..");
@@ -34,7 +34,7 @@ public class TC_003_AddToCartTest extends BaseClass {
 		logger.info("clicked on login button..");
 		
 		//My Account Page
-		MyAccountPage macc=new MyAccountPage(driver);
+		MyAccountPage macc=new MyAccountPage(getDriver());
 				
 		boolean targetPage=macc.isMyAccountPageExists();
 		
@@ -43,7 +43,7 @@ public class TC_003_AddToCartTest extends BaseClass {
 		logger.info("Successfully Logged in");
 
 		//CartPage
-		CartPage cp= new CartPage(driver);
+		CartPage cp= new CartPage(getDriver());
 		
 		logger.info("Product is adding to the cart");
 		cp.clickAddToCart();

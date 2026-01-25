@@ -30,84 +30,94 @@ public class BaseClass {
 	
 	public ResourceBundle rb;// to read config.properties
 	
-	public static WebDriver driver;
+	//public static WebDriver driver;
 	public Logger logger;
 	public Properties p;
+	
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+	   // Getter to use driver safely everywhere
+	public WebDriver getDriver() {
+       return driver.get();
+    }
 	
 	@BeforeClass(groups = { "Master", "Sanity", "Regression" }) //Step8 groups added
 	@Parameters({"os", "browser"})
 	public void setup(String os, String br) throws IOException
 	{
 		
-		rb = ResourceBundle.getBundle("config");// Load config.propertiesrb = ResourceBundle.getBundle("config");// Load config.properties
-		
-		// Loading properties file
-		FileReader file = new FileReader(".//src//test//resources//config.properties");
-		p= new Properties();
-		p.load(file);
-		
-		//Loading log4j file
-		logger=LogManager.getLogger(this.getClass());//Log4j
-		
-		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
-		{
-			DesiredCapabilities capabilities=new DesiredCapabilities();
-			
-			//os
-			if(os.equalsIgnoreCase("windows"))
-			{
-				capabilities.setPlatform(Platform.WIN10);
-			}
-			else if (os.equalsIgnoreCase("linux"))
-			{
-				capabilities.setPlatform(Platform.LINUX);
-			}
-			else
-			{
-				System.out.println("No matching os");
-				return;
-			}
-			
-			//browser
-			switch(br.toLowerCase())
-			{
-			case "chrome": capabilities.setBrowserName("chrome"); break;
-			case "edge": capabilities.setBrowserName("MicrosoftEdge"); break;
-			case "firefox": capabilities.setBrowserName("firefox"); break; 
-			default: System.out.println("No matching browser"); return;
-			}
-			
-			driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
-		}
-		
-		if(p.getProperty("execution_env").equalsIgnoreCase("local"))
-		{
+		rb = ResourceBundle.getBundle("config");
 
-			switch(br.toLowerCase())
-			{
-			case "chrome" : driver=new ChromeDriver(); break;
-			case "edge" : driver=new EdgeDriver(); break;
-			case "firefox": driver=new FirefoxDriver(); break;
-			default : System.out.println("Invalid browser name.."); return;
-			}
-		}
-		
-			
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		driver.get(p.getProperty("appURL"));
-		driver.manage().window().maximize();
-	}
-	
-	@AfterClass(groups = { "Master", "Sanity", "Regression" }) //Step8 groups added
-	public void tearDown()
-	{
-		driver.quit();
-	}
-	
+        FileReader file = new FileReader(".//src//test//resources//config.properties");
+        p = new Properties();
+        p.load(file);
 
-	public String randomeString()
+        logger = LogManager.getLogger(this.getClass());
+
+        WebDriver localDriver = null;
+
+        if (p.getProperty("execution_env").equalsIgnoreCase("remote")) {
+
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
+            if (os.equalsIgnoreCase("windows"))
+                capabilities.setPlatform(Platform.WIN10);
+            else if (os.equalsIgnoreCase("mac"))
+                capabilities.setPlatform(Platform.MAC);
+            else if (os.equalsIgnoreCase("linux"))
+                capabilities.setPlatform(Platform.LINUX);
+            else
+                throw new RuntimeException("Invalid OS");
+
+            switch (br.toLowerCase()) {
+            case "chrome":
+                capabilities.setBrowserName("chrome");
+                break;
+            case "firefox":
+                capabilities.setBrowserName("firefox");
+                break;
+            case "edge":
+                capabilities.setBrowserName("MicrosoftEdge");
+                break;
+            default:
+                throw new RuntimeException("Invalid Browser");
+            }
+
+            localDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        }
+
+        if (p.getProperty("execution_env").equalsIgnoreCase("local")) {
+
+            switch (br.toLowerCase()) {
+            case "chrome":
+                localDriver = new ChromeDriver();
+                break;
+            case "edge":
+                localDriver = new EdgeDriver();
+                break;
+            case "firefox":
+                localDriver = new FirefoxDriver();
+                break;
+            default:
+                throw new RuntimeException("Invalid Browser");
+            }
+        }
+
+        driver.set(localDriver);
+
+        getDriver().manage().deleteAllCookies();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().get(p.getProperty("appURL"));
+        getDriver().manage().window().maximize();
+    }
+
+    @AfterClass(groups = { "Master", "Sanity", "Regression" })
+    public void tearDown() {
+        getDriver().quit();
+        driver.remove();
+    }
+    
+    public String randomeString()
 	{
 		String generatedString=RandomStringUtils.randomAlphabetic(5);
 		return generatedString;
@@ -126,20 +136,18 @@ public class BaseClass {
 		
 		return (str+"@"+num);
 	}
-	
-	public String captureScreen(String tname) throws IOException {
 
-		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-				
-		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		
-		String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\" + tname + "_" + timeStamp + ".png";
-		File targetFile=new File(targetFilePath);
-		
-		sourceFile.renameTo(targetFile);
-			
-		return targetFilePath;
+    public String captureScreen(String tname) throws IOException {
 
-	}
+        String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
+
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String targetPath = System.getProperty("user.dir") + "\\screenshots\\" + tname + "_" + timeStamp + ".png";
+
+        File target = new File(targetPath);
+        source.renameTo(target);
+
+        return targetPath;
+    }
 }

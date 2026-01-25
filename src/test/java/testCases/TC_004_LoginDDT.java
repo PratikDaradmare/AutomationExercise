@@ -28,18 +28,18 @@ public class TC_004_LoginDDT extends BaseClass
 		try {
 	
 		//Home page
-			HomePage hp=new HomePage(driver);
+			HomePage hp=new HomePage(getDriver());
 			hp.HomepageVisible();;
 			hp.linkOfSignupLogin(); //Login link under MyAccount
 				
 			//Login page
-			LoginPage lp=new LoginPage(driver);
+			LoginPage lp=new LoginPage(getDriver());
 			lp.setEmail(email);
 			lp.setPassword(password);
 			lp.clickLoginButton(); //Login button
 			
 			//My Account Page
-			MyAccountPage macc=new MyAccountPage(driver);
+			MyAccountPage macc=new MyAccountPage(getDriver());
 			boolean targetPage=macc.isMyAccountPageExists();
 			
 			if(exp.equalsIgnoreCase("Valid"))
