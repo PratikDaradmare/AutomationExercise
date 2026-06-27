@@ -36,7 +36,7 @@ public class BaseClass {
 	
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-	   // Getter to use driver safely everywhere
+	// Getter to use driver safely everywhere
 	public WebDriver getDriver() {
        return driver.get();
     }
@@ -117,13 +117,13 @@ public class BaseClass {
         driver.remove();
     }
     
-    public String randomeString()
+    public String randomString()
 	{
 		String generatedString=RandomStringUtils.randomAlphabetic(5);
 		return generatedString;
 	}
 	
-	public String randomeNumber()
+	public String randomNumber()
 	{
 		String generatedString=RandomStringUtils.randomNumeric(10);
 		return generatedString;

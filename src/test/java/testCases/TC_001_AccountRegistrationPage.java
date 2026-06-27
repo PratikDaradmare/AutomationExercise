@@ -27,8 +27,8 @@ public class TC_001_AccountRegistrationPage extends BaseClass{
 		
 		logger.info("Providing customer details...");
 		
-		regpage.setName(randomeString().toUpperCase());
-		regpage.setEmail(randomeString()+"@gmail.com");// randomly generated the email
+		regpage.setName(randomString().toUpperCase());
+		regpage.setEmail(randomString()+"@gmail.com");// randomly generated the email
 		
 		regpage.clickSignupButton();
 		regpage.accountInfoPageVisibility();
@@ -41,18 +41,18 @@ public class TC_001_AccountRegistrationPage extends BaseClass{
 		
 		//regpage.setPrivacyPolicy();
 		regpage.setDOB();
-		regpage.setFirstName(randomeString().toUpperCase());
-		regpage.setLastName(randomeString().toUpperCase());
+		regpage.setFirstName(randomString().toUpperCase());
+		regpage.setLastName(randomString().toUpperCase());
 		
-		regpage.setCompany(randomeString().toUpperCase());
-		regpage.setAddress(randomeString().toUpperCase());
-		regpage.setAddress2(randomeString().toUpperCase());
+		regpage.setCompany(randomString().toUpperCase());
+		regpage.setAddress(randomString().toUpperCase());
+		regpage.setAddress2(randomString().toUpperCase());
 		
 		regpage.selectCountry();
-		regpage.setState(randomeString());
-		regpage.setCity(randomeString());
-		regpage.setZipcode(randomeNumber());
-		regpage.setMobileNo(randomeNumber());
+		regpage.setState(randomString());
+		regpage.setCity(randomString());
+		regpage.setZipcode(randomNumber());
+		regpage.setMobileNo(randomNumber());
 		
 		regpage.clickCreateAccount();
 		
@@ -78,5 +78,4 @@ public class TC_001_AccountRegistrationPage extends BaseClass{
 	
 	
 }
-
 

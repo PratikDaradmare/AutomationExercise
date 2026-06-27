@@ -1,27 +1,42 @@
-2026-01-21 16:26:34 INFO  TC_005_PaymentTest:20 - ***** Starting TC_005_PaymentTest *****
-2026-01-21 16:26:34 INFO  TC_005_PaymentTest:25 - clicked on myaccount link on the home page..
-2026-01-21 16:26:38 INFO  TC_005_PaymentTest:30 - clicked on login link under myaccount..
-2026-01-21 16:26:38 INFO  TC_005_PaymentTest:31 - Entering valid email and password..
-2026-01-21 16:26:43 INFO  TC_005_PaymentTest:35 - clicked on login button..
-2026-01-21 16:26:43 INFO  TC_005_PaymentTest:44 - Successfully Logged in
-2026-01-21 16:26:43 INFO  TC_005_PaymentTest:49 - Product is adding to the cart
-2026-01-21 16:26:44 INFO  TC_005_PaymentTest:52 - Clicking on View Cart
-2026-01-21 16:26:46 INFO  TC_005_PaymentTest:55 - Verifying product is Successfully present in Cart
-2026-01-21 16:26:46 INFO  TC_005_PaymentTest:61 - Product id proceeding for checkout
-2026-01-21 16:26:49 INFO  TC_005_PaymentTest:64 - Clicking on place order button
-2026-01-21 16:26:50 INFO  TC_005_PaymentTest:70 - Verifying payment page is displayed
-2026-01-21 16:26:56 INFO  TC_005_PaymentTest:73 - Filling Card details
-2026-01-21 16:26:57 INFO  TC_005_PaymentTest:76 - Clicking on pay and confirm order button
-2026-01-21 16:27:01 INFO  TC_005_PaymentTest:82 - Verifying order has been placed successfully
-2026-01-21 16:27:01 INFO  TC_005_PaymentTest:85 - Click on continue button to continue our shopping
-2026-01-21 16:27:04 INFO  TC_005_PaymentTest:88 - ***** Ending TC_005_PaymentTest *****
-2026-01-21 16:37:56 INFO  TC_004_LoginDDT:26 - **** Starting TC_003_LoginDDT *****
-2026-01-21 16:38:14 INFO  TC_004_LoginDDT:76 - **** Finished TC_003_LoginDDT *****
-2026-01-21 16:38:14 INFO  TC_004_LoginDDT:26 - **** Starting TC_003_LoginDDT *****
-2026-01-21 16:38:32 INFO  TC_004_LoginDDT:76 - **** Finished TC_003_LoginDDT *****
-2026-01-21 16:38:32 INFO  TC_004_LoginDDT:26 - **** Starting TC_003_LoginDDT *****
-2026-01-21 16:38:51 INFO  TC_004_LoginDDT:76 - **** Finished TC_003_LoginDDT *****
-2026-01-21 16:38:51 INFO  TC_004_LoginDDT:26 - **** Starting TC_003_LoginDDT *****
-2026-01-21 16:39:07 INFO  TC_004_LoginDDT:76 - **** Finished TC_003_LoginDDT *****
-2026-01-21 16:39:07 INFO  TC_004_LoginDDT:26 - **** Starting TC_003_LoginDDT *****
-2026-01-21 16:41:44 INFO  TC_004_LoginDDT:76 - **** Finished TC_003_LoginDDT *****
+2026-03-31 23:22:03 INFO  Utils:112 - [TestNG] Running:
+  D:\java\2025SDETworksp\AutomationExercise\GridParallelTesting-Standalone.xml
+
+2026-03-31 23:22:58 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:23:00 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:23:11 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:23:11 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:23:21 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:23:26 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:23:26 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
+2026-03-31 23:23:34 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:23:34 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:23:37 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:23:41 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:23:41 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:23:48 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:23:48 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
+2026-03-31 23:24:00 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:24:00 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:24:07 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:24:07 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
+2026-03-31 23:25:31 INFO  Utils:112 - [TestNG] Running:
+  D:\java\2025SDETworksp\AutomationExercise\GridParallelTesting-Standalone.xml
+
+2026-03-31 23:25:52 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:25:53 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:25:59 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:25:59 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:26:00 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:26:07 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
+2026-03-31 23:26:37 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:26:37 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:26:42 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:26:42 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:26:50 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:26:50 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
+2026-03-31 23:27:05 INFO  TC_002_LoginTest:17 - **** Starting TC_002_LoginTest  ****
+2026-03-31 23:27:08 INFO  TC_002_LoginTest:24 - clicked on myaccount link on the home page..
+2026-03-31 23:27:11 INFO  TC_002_LoginTest:29 - clicked on login link under myaccount..
+2026-03-31 23:27:11 INFO  TC_002_LoginTest:30 - Entering valid email and password..
+2026-03-31 23:27:15 INFO  TC_002_LoginTest:34 - clicked on login button..
+2026-03-31 23:27:15 INFO  TC_002_LoginTest:48 - **** Finished TC_002_LoginTest  ****
